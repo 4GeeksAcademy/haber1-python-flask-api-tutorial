@@ -1,15 +1,17 @@
-from flask import Flask
+from flask import Flask, jsonify
 
 
 app = Flask(__name__)
 
 
-
-
 @app.route('/todos',methods=['GET'])
 def hello_world():
-    return '<h1>Hello!</h1>'
-    
+    return jsonify(todos)
+
+todos = [{'label': 'My firt task', 'done': False},
+        {'label': 'My second task', 'done': False}]
+same_data = {'name': 'Bobby',
+              'lastname': 'Rixer'}
 
 
 if __name__== '__main__':
